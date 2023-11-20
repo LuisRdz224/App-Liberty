@@ -1,10 +1,20 @@
 const express = require('express')
 const bodyParser = require('body-parser');
+const cors = require('cors')
+
 const paymentsRoute = require('./routes/payments');
 
 const app = express();
 const port = 3000;
 
+app.use(cors())
+app.use(
+    cors({
+        origin: [
+            'http://localhost:4200'
+        ]
+    })
+)
 // Routes
 app.use('/api/payments', paymentsRoute);
 

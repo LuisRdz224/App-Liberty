@@ -1,0 +1,138 @@
+<div class="container text-center">
+    <h1>Prima por cobrar</h1>
+</div>
+<div *ngIf="states.length > 0" class="container">
+    <label for="stateSelect">Selecciona un estado:</label><br>
+    <select id="stateSelect" [(ngModel)]="selectedState" (change)="onStateChange()">
+        <option *ngFor="let state of states" [value]="state">{{ state | titlecase }}</option>
+    </select>
+</div>
+<div class="container mt-5" *ngIf="responseData">
+    <h2>Información de deudas para {{ selectedState | titlecase }}:</h2>
+    <div>
+        <div class="row">
+            <!-- Dollars Table -->
+            <div class="col-md-4">
+                <div class="container border p-3 mb-3 text-center">
+                    <p class="font-weight-bold" style="font-size: 20px;">Dolares</p>
+                    <p class="mb-4 font-weight-bold" style="font-size: 24px;">{{ responseData.debts.totalDebt *
+                        (exchangeRates?.conversion_rates?.USD || 0) | currency: 'USD' }}</p>
+
+                    <div *ngIf="responseData.debts.totalDebt !== 0" class="row">
+                        <div class="col">
+                            <p class="font-weight-bold text-info" style="font-size: 18px;"><i
+                                    class="fa fa-check-circle text-success fa-lg"></i>&nbsp;{{
+                                (responseData.debts.onTimeDebt
+                                *
+                                (exchangeRates?.conversion_rates?.USD || 0) / responseData.debts.totalDebt * 100) |
+                                number: '1.0-0' }}% <br>{{ responseData.debts.onTimeDebt *
+                                (exchangeRates?.conversion_rates?.USD || 0) | currency: 'USD' }}</p>
+                        </div>
+                        <div class="col">
+                            <p class="font-weight-bold text-danger" style="font-size: 18px;"><i
+                                    class="fa fa-info-circle fa-lg text-danger"></i>&nbsp;{{
+                                (responseData.debts.overdueDebt *
+                                (exchangeRates?.conversion_rates?.USD || 0) / responseData.debts.totalDebt * 100) |
+                                number: '1.0-0' }}% <br>{{ responseData.debts.overdueDebt *
+                                (exchangeRates?.conversion_rates?.USD || 0) | currency: 'USD' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Euros Table -->
+            <div class="col-md-4">
+                <div class="container border p-3 mb-3 text-center">
+                    <p class="font-weight-bold" style="font-size: 20px;">Euros</p>
+                    <p class="mb-4 font-weight-bold" style="font-size: 24px;">{{ responseData.debts.totalDebt *
+                        (exchangeRates?.conversion_rates?.EUR || 0) | currency: 'EUR' }}</p>
+
+                    <div *ngIf="responseData.debts.totalDebt !== 0" class="row">
+                        <div class="col">
+                            <p class="font-weight-bold text-info" style="font-size: 18px;"><i
+                                    class="fa fa-check-circle text-success fa-lg"></i>&nbsp;{{
+                                (responseData.debts.onTimeDebt *
+                                (exchangeRates?.conversion_rates?.USD || 0) / responseData.debts.totalDebt * 100) |
+                                number: '1.0-0' }}% <br>{{ responseData.debts.onTimeDebt *
+                                (exchangeRates?.conversion_rates?.EUR || 0) | currency: 'EUR' }}</p>
+                        </div>
+                        <div class="col">
+                            <p class="font-weight-bold text-danger" style="font-size: 18px;"><i
+                                    class="fa fa-info-circle fa-lg text-danger"></i>&nbsp;{{
+                                (responseData.debts.overdueDebt *
+                                (exchangeRates?.conversion_rates?.USD || 0) / responseData.debts.totalDebt * 100) |
+                                number: '1.0-0' }}% <br>{{ responseData.debts.overdueDebt *
+                                (exchangeRates?.conversion_rates?.EUR || 0) | currency: 'EUR' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pesos Table -->
+            <div class="col-md-4">
+                <div class="container border p-3 mb-3 text-center">
+                    <p class="font-weight-bold" style="font-size: 20px;">Pesos</p>
+                    <p class="mb-4 font-weight-bold" style="font-size: 24px;">{{ responseData.debts.totalDebt *
+                        (exchangeRates?.conversion_rates?.MXN || 0) | currency: 'MXN' }}</p>
+
+                    <div *ngIf="responseData.debts.totalDebt !== 0" class="row">
+                        <div class="col">
+                            <p class="font-weight-bold text-info" style="font-size: 18px;"><i
+                                    class="fa fa-check-circle text-success fa-lg"></i>&nbsp;{{
+                                (responseData.debts.onTimeDebt *
+                                (exchangeRates?.conversion_rates?.USD || 0) / responseData.debts.totalDebt * 100) |
+                                number: '1.0-0' }}% <br>{{ responseData.debts.onTimeDebt *
+                                (exchangeRates?.conversion_rates?.MXN || 0) | currency: 'MXN' }}</p>
+                        </div>
+                        <div class="col">
+                            <p class="font-weight-bold text-danger" style="font-size: 18px;"><i
+                                    class="fa fa-info-circle fa-lg text-danger"></i>&nbsp;{{
+                                (responseData.debts.overdueDebt *
+                                (exchangeRates?.conversion_rates?.USD || 0) / responseData.debts.totalDebt * 100) |
+                                number: '1.0-0' }}% <br>{{ responseData.debts.overdueDebt *
+                                (exchangeRates?.conversion_rates?.MXN || 0) | currency: 'MXN' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table *ngIf="responseData.debts?.data && responseData.debts.data.length > 0"
+            class="table table-striped margin-table">
+            <thead>
+                <tr>
+                    <th>Fianza</th>
+                    <th>Movimiento</th>
+                    <th>Fiado</th>
+                    <th>Antigüedad</th>
+                    <th>Días de vencimiento</th>
+                    <th>Importe</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let debt of responseData.debts.data"
+                    [ngClass]="{ 'table-danger': debt.status === 'overdue' }">
+                    <td>{{ debt.entityId }}</td>
+                    <td>{{ debt.movement }}</td>
+                    <td>{{ debt.name }}</td>
+                    <td>{{ debt.seniority }}</td>
+                    <td>{{ debt.dueDays }}</td>
+                    <td>{{ debt.amount | currency:'USD'}}</td>
+                    <td>
+                        <i *ngIf="debt.status === 'on time'; else overdueIcon" class="fas fa-check text-success"></i>
+                        <ng-template #overdueIcon><i class="fas fa-times text-danger"></i></ng-template>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="responseData.debts.data && responseData.debts.data.length === 0">
+        <p>No hay deudas registradas para este estado.</p>
+    </div>
+
+</div>
+<currency class="footer"></currency>

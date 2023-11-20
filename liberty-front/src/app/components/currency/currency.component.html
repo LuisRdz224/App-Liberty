@@ -1,0 +1,12 @@
+<div *ngIf="exchangeRates" class="text-center">
+    <h4>Tasa de cambio en base a dólar</h4>
+    <p>Última actualización: {{ lastUpdate }}</p>
+    <div class="d-flex justify-content-center">
+        <ng-container *ngFor="let rate of ['EUR', 'MXN']; let last = last">
+            <div class="mr-4">
+                <strong>{{ rate }}:</strong> {{ exchangeRates[rate] }}
+                <span *ngIf="!last">&nbsp;</span>
+            </div>
+        </ng-container>
+    </div>
+</div>

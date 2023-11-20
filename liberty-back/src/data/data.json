@@ -32,5 +32,141 @@
                 "amount": 200
             }
         ]
+    },
+    "baja california": {
+        "data": [
+            {
+                "id": 4,
+                "entityId": "7312-0000",
+                "movement": "Prórroga",
+                "status": "overdue",
+                "name": "EMPRESA BAJACAL S.A. DE C.V.",
+                "seniority": 4,
+                "dueDays": 12,
+                "amount": 3000
+            },
+            {
+                "id": 5,
+                "entityId": "1245-0000",
+                "movement": "Ampliación",
+                "status": "on time",
+                "name": "LOGISTICA NORTE S.A. DE C.V.",
+                "seniority": 6,
+                "dueDays": 8,
+                "amount": 1500
+            },
+            {
+                "id": 6,
+                "entityId": "8943-0000",
+                "movement": "Expedición",
+                "status": "on time",
+                "name": "TECNOBAJA S.A. DE C.V.",
+                "seniority": 8,
+                "dueDays": 20,
+                "amount": 4500
+            }
+        ]
+    },
+    "chiapas": {
+        "data": [
+            {
+                "id": 7,
+                "entityId": "6321-0000",
+                "movement": "Expedición",
+                "status": "on time",
+                "name": "AGRINORTE S.A. DE C.V.",
+                "seniority": 6,
+                "dueDays": 15,
+                "amount": 4000
+            },
+            {
+                "id": 8,
+                "entityId": "4210-0000",
+                "movement": "Prórroga",
+                "status": "overdue",
+                "name": "FRUTAS DEL SUR S.A. DE C.V.",
+                "seniority": 4,
+                "dueDays": 7,
+                "amount": 1200
+            },
+            {
+                "id": 9,
+                "entityId": "8796-0000",
+                "movement": "Ampliación",
+                "status": "on time",
+                "name": "AGROEXPORT S.A. DE C.V.",
+                "seniority": 7,
+                "dueDays": 12,
+                "amount": 2800
+            }
+        ]
+    },
+    "jalisco": {
+        "data": [
+            {
+                "id": 10,
+                "entityId": "1587-0000",
+                "movement": "Ampliación",
+                "status": "overdue",
+                "name": "LOGISTICA JAL S.A. DE C.V.",
+                "seniority": 5,
+                "dueDays": 18,
+                "amount": 3500
+            },
+            {
+                "id": 11,
+                "entityId": "4692-0000",
+                "movement": "Expedición",
+                "status": "on time",
+                "name": "EXPORTMEX S.A. DE C.V.",
+                "seniority": 6,
+                "dueDays": 10,
+                "amount": 1800
+            },
+            {
+                "id": 12,
+                "entityId": "7248-0000",
+                "movement": "Prórroga",
+                "status": "overdue",
+                "name": "AGROJAL S.A. DE C.V.",
+                "seniority": 8,
+                "dueDays": 14,
+                "amount": 2400
+            }
+        ]
+    },
+    "sonora": {
+        "data": [
+            {
+                "id": 13,
+                "entityId": "9365-0000",
+                "movement": "Prórroga",
+                "status": "on time",
+                "name": "AGROSONORA S.A. DE C.V.",
+                "seniority": 4,
+                "dueDays": 8,
+                "amount": 1600
+            },
+            {
+                "id": 14,
+                "entityId": "2054-0000",
+                "movement": "Ampliación",
+                "status": "overdue",
+                "name": "FRUTAS DEL DESIERTO S.A. DE C.V.",
+                "seniority": 7,
+                "dueDays": 16,
+                "amount": 3200
+            },
+            {
+                "id": 15,
+                "entityId": "8412-0000",
+                "movement": "Expedición",
+                "status": "on time",
+                "name": "AGRICOLA SONORENSE S.A. DE C.V.",
+                "seniority": 6,
+                "dueDays": 12,
+                "amount": 2000
+            }
+        ]
     }
 }

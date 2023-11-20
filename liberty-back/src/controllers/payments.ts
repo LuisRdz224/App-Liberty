@@ -11,9 +11,11 @@ const getDebtsByState = async (req, res) => {
 
     // Calculate debts by total, on time and over due
     const totalDebt = debts.data.reduce((total, debt) => total + debt.amount, 0);
+
     const onTimeDebt = debts.data
         .filter(debt => debt.status === 'on time')
         .reduce((total, debt) => total + debt.amount, 0);
+
     const overdueDebt = debts.data
         .filter(debt => debt.status === 'overdue')
         .reduce((total, debt) => total + debt.amount, 0);
@@ -28,6 +30,12 @@ const getDebtsByState = async (req, res) => {
     });
 };
 
+const getStates = async (req, res) => {
+    const states = Object.keys(debtsByState);
+    res.json({ states });
+}
+
 module.exports = {
     getDebtsByState,
+    getStates
 };
