@@ -1,0 +1,36 @@
+{
+    "aguascalientes": {
+        "data": [
+            {
+                "id": 1,
+                "entityId": "1954-0000",
+                "movement": "Expedición",
+                "status": "overdue",
+                "name": "AGROGEN S.A. DE C.V.",
+                "seniority": 5,
+                "dueDays": 10,
+                "amount": 5000
+            },
+            {
+                "id": 2,
+                "entityId": "5682-0000",
+                "movement": "Prórroga",
+                "status": "on time",
+                "name": "DOMANI S.A. DE C.V.",
+                "seniority": 3,
+                "dueDays": 5,
+                "amount": 1000
+            },
+            {
+                "id": 3,
+                "entityId": "9491-0000",
+                "movement": "Ampliación",
+                "status": "overdue",
+                "name": "CASA GALLARDO S.A. DE C.V.",
+                "seniority": 7,
+                "dueDays": 15,
+                "amount": 200
+            }
+        ]
+    }
+}
