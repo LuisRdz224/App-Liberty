@@ -20,7 +20,7 @@
 
                     <div *ngIf="responseData.debts.totalDebt !== 0" class="row">
                         <div class="col">
-                            <p class="font-weight-bold text-info" style="font-size: 18px;"><i
+                            <p class="font-weight-bold text-primary" style="font-size: 18px;"><i
                                     class="fa fa-check-circle text-success fa-lg"></i>&nbsp;{{
                                 (responseData.debts.onTimeDebt
                                 *
@@ -49,7 +49,7 @@
 
                     <div *ngIf="responseData.debts.totalDebt !== 0" class="row">
                         <div class="col">
-                            <p class="font-weight-bold text-info" style="font-size: 18px;"><i
+                            <p class="font-weight-bold text-primary" style="font-size: 18px;"><i
                                     class="fa fa-check-circle text-success fa-lg"></i>&nbsp;{{
                                 (responseData.debts.onTimeDebt *
                                 (exchangeRates?.conversion_rates?.USD || 0) / responseData.debts.totalDebt * 100) |
@@ -77,7 +77,7 @@
 
                     <div *ngIf="responseData.debts.totalDebt !== 0" class="row">
                         <div class="col">
-                            <p class="font-weight-bold text-info" style="font-size: 18px;"><i
+                            <p class="font-weight-bold text-primary" style="font-size: 18px;"><i
                                     class="fa fa-check-circle text-success fa-lg"></i>&nbsp;{{
                                 (responseData.debts.onTimeDebt *
                                 (exchangeRates?.conversion_rates?.USD || 0) / responseData.debts.totalDebt * 100) |
@@ -106,22 +106,21 @@
                     <th>Fianza</th>
                     <th>Movimiento</th>
                     <th>Fiado</th>
-                    <th>Antigüedad</th>
-                    <th>Días de vencimiento</th>
+                    <th class="text-center">Antigüedad</th>
+                    <th class="text-center">Días de vencimiento</th>
                     <th>Importe</th>
-                    <th>Estado</th>
+                    <th class="text-center">Estado</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let debt of responseData.debts.data"
-                    [ngClass]="{ 'table-danger': debt.status === 'overdue' }">
+                <tr *ngFor="let debt of responseData.debts.data" [ngClass]="{ 'table-danger': debt.status === 'overdue' }">
                     <td>{{ debt.entityId }}</td>
                     <td>{{ debt.movement }}</td>
                     <td>{{ debt.name }}</td>
-                    <td>{{ debt.seniority }}</td>
-                    <td>{{ debt.dueDays }}</td>
+                    <td class="text-center">{{ debt.seniority }}</td>
+                    <td class="text-center">{{ debt.dueDays }}</td>
                     <td>{{ debt.amount | currency:'USD'}}</td>
-                    <td>
+                    <td class="text-center">
                         <i *ngIf="debt.status === 'on time'; else overdueIcon" class="fas fa-check text-success"></i>
                         <ng-template #overdueIcon><i class="fas fa-times text-danger"></i></ng-template>
                     </td>
